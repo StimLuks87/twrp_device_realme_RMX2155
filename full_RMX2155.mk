@@ -1,0 +1,8 @@
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_RMX2155L1.mk)
+
+PRODUCT_DEVICE := RMX2155L1
+PRODUCT_NAME := RMX2155
+PRODUCT_BRAND := realme
+PRODUCT_MODEL := realme 7
+PRODUCT_MANUFACTURER := realme
+PRODUCT_BOARD := oppo6785

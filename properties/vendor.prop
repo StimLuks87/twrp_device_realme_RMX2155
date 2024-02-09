@@ -1,0 +1,47 @@
+# TEE
+ro.mtk_key_manager_support=1
+ro.hardware.kmsetkey=trustonic
+ro.hardware.gatekeeper=trustonic
+ro.vendor.mtk_trustonic_tee_support=1
+ro.vendor.mtk_tee_gp_support=1
+fbe.metadata.wrappedkey=true
+
+# Storage
+ro.vendor.mtk_f2fs_enable=1
+ro.vendor.mtk_emmc_support=1
+ro.vendor.mtk_ufs_support=1
+ro.crypto.metadata.enabled=true
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.crypto.allow_encrypt_override=true
+ro.crypto.dm_default_key.options_format.version=1
+ro.crypto.volume.metadata.method=dm-default-key
+ro.crypto.volume.options=::v1
+ro.crypto.uses_fs_ioc_add_encryption_key=true
+
+# Sensors
+ro.vendor.mtk.sensor.support=yes
+ro.vendor.init.sensor.rc=init.sensor_1_0.rc
+
+# Display
+ro.opengles.version=196610
+ro.vendor.composer_version=2.2
+debug.mediatek.disp_decompress=1
+ro.hwui.render_ahead=7
+ro.vendor.smvr.p2batch.vga=16
+ro.vendor.smvr.p2batch.hd=8
+ro.vendor.smvr.p2batch.fhd=4
+ro.vendor.pq.mtk_backlight_smooth_support=1
+ro.vendor.pq.mtk_ultra_dimming_support=0
+ro.vendor.pq.mtk_blulight_def_support=1
+ro.hardware.egl=meow
+debug.renderengine.backend=skiaglthreaded
+debug.hwui.skia_atrace_enabled=false
+ro.sf.lcd_density=480
+
+# DRM
+ro.vendor.mtk_widevine_drm_l1_support=1
+ro.vendor.mtk_sec_video_path_support=1
+drm.service.enabled=true
+ro.netflix.bsp_rev=MTK6785-18787-1
+ro.vendor.mtk_mvpu_security_support=0
+

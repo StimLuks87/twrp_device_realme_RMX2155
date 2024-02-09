@@ -1,0 +1,19 @@
+# Brand
+Build.BRAND=MTK
+
+# Additional System Properties
+ro.mediatek.platform=MT6785
+ro.product.device=RMX2155L1
+ro.treble.enabled=true
+ro.secure=0
+ro.adb.secure=0
+ro.debuggable=1
+
+# USB
+persist.service.adb.enable=1                                                    
+persist.service.debuggable=1
+persist.sys.usb.config=mtp
+ro.sys.usb.bicr=no
+ro.sys.usb.storage.type=mtp,mass_storage
+ro.charger.enable_suspend=true
+

@@ -1,0 +1,64 @@
+# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6893/fstab.in.mt6893"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 341 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6893/fstab.in.mt6893" 2
+# 148 "vendor/mediatek/proprietary/hardware/fstab/mt6893/fstab.in.mt6893"
+
+system /system erofs                                   ro                           wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor /vendor erofs                                   ro                           wait,avb,logical,first_stage_mount
+product /product erofs                                 ro                           wait,logical,first_stage_mount
+odm /odm erofs                                         ro                           wait,logical,first_stage_mount
+system_ext /system_ext erofs                           ro                           wait,logical,first_stage_mount
+
+system /system ext4                                    ro,barrier=1                 wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor /vendor ext4                                    ro,barrier=1                 wait,avb,logical,first_stage_mount
+product /product ext4                                  ro,barrier=1                 wait,logical,first_stage_mount
+odm /odm ext4                                          ro,barrier=1                 wait,logical,first_stage_mount
+system_ext /system_ext ext4                            ro,barrier=1                 wait,logical,first_stage_mount
+
+my_product /mnt/vendor/my_product erofs                ro                           wait,logical,first_stage_mount,nofail
+my_engineering /mnt/vendor/my_engineering erofs        ro                           wait,logical,first_stage_mount,nofail
+my_company /mnt/vendor/my_company erofs                ro                           wait,logical,first_stage_mount,nofail
+my_carrier /mnt/vendor/my_carrier erofs                ro                           wait,logical,first_stage_mount,nofail
+my_region /mnt/vendor/my_region erofs                  ro                           wait,logical,first_stage_mount,nofail
+my_region /mnt/vendor/my_region erofs                  ro                           wait,logical,first_stage_mount,nofail
+my_heytap /mnt/vendor/my_heytap erofs                  ro                           wait,logical,first_stage_mount,nofail
+my_stock /mnt/vendor/my_stock erofs                    ro                           wait,logical,first_stage_mount,nofail
+my_preload /mnt/vendor/my_preload erofs                ro                           wait,logical,first_stage_mount,nofail
+my_bigball /mnt/vendor/my_bigball erofs                ro                           wait,logical,first_stage_mount,nofail
+my_manifest /mnt/vendor/my_manifest erofs              ro                           wait,logical,first_stage_mount,nofail
+
+my_product /mnt/vendor/my_product ext4                 ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_engineering /mnt/vendor/my_engineering ext4         ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_company /mnt/vendor/my_company ext4                 ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_carrier /mnt/vendor/my_carrier ext4                 ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_region /mnt/vendor/my_region ext4                   ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_heytap /mnt/vendor/my_heytap ext4                   ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_stock /mnt/vendor/my_stock  ext4                    ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_preload /mnt/vendor/my_preload ext4                 ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_bigball /mnt/vendor/my_bigball ext4                 ro,barrier=1                 wait,logical,first_stage_mount,nofail
+my_manifest /mnt/vendor/my_manifest ext4               ro,barrier=1                 wait,logical,first_stage_mount,nofail
+
+/dev/block/platform/bootdevice/by-name/recovery        /recovery emmc               defaults first_stage_mount,nofail,
+/dev/block/platform/bootdevice/by-name/boot            /boot emmc                   defaults first_stage_mount,nofail,
+/dev/block/platform/bootdevice/by-name/dtbo            /dtbo emmc                   defaults first_stage_mount,nofail,
+/dev/block/platform/bootdevice/by-name/logo            /logo emmc                   defaults first_stage_mount,nofail,
+/dev/block/platform/bootdevice/by-name/vbmeta_system   /vbmeta_system emmc          defaults first_stage_mount,nofail,,avb=vbmeta
+/dev/block/platform/bootdevice/by-name/vbmeta_vendor   /vbmeta_vendor emmc          defaults first_stage_mount,nofail,
+/dev/block/platform/bootdevice/by-name/vbmeta          /vbmeta emmc                 defaults defaults
+
+/dev/block/platform/bootdevice/by-name/userdata        /data ext4                   noatime,nosuid,nodev,noauto_da_alloc,errors=panic,inlinecrypt wait,check,formattable,quota,reservedsize=128m,latemount,resize,checkpoint=block,fileencryption=aes-256-xts:aes-256-cts:v1,fsverity
+/dev/block/platform/bootdevice/by-name/userdata        /data f2fs                   noatime,nosuid,nodev,discard,noflush_merge,reserve_root=134217,resgid=1065,fsync_mode=nobarrier,inlinecrypt latemount,wait,check,formattable,quota,reservedsize=128m,fileencryption=aes-256-xts:v2,fsverity
+/dev/block/platform/bootdevice/by-name/cache           /cache ext4                  noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable
+/dev/block/platform/bootdevice/by-name/protect1        /mnt/vendor/protect_f ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check
+/dev/block/platform/bootdevice/by-name/protect2        /mnt/vendor/protect_s ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check
+/dev/block/platform/bootdevice/by-name/nvdata          /mnt/vendor/nvdata ext4      noatime,nosuid,nodev,noauto_da_alloc,discard wait,check
+/dev/block/platform/bootdevice/by-name/nvcfg           /mnt/vendor/nvcfg ext4       noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check
+
+/dev/block/platform/bootdevice/by-name/misc            /misc emmc                   defaults defaults
+
+# Swap
+/dev/block/zram0                                        none swap                   defaults zramsize=55%,max_comp_streams=8,zram_backingdev_size=512M
